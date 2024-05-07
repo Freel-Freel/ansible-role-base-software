@@ -1,0 +1,10 @@
+---
+# tasks file for ansible-role-base-software
+
+
+- name: system setup
+  tags: system
+  include_tasks: "{{ ansible_distribution }}.yml"
+
+- name: yum clean
+  meta: flush_handlers

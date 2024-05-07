@@ -1,0 +1,23 @@
+---
+# tasks file for ansible-role-tinyproxy
+
+- name: Install required software 
+  ansible.builtin.package:
+    name: 
+      - tmux
+      - vim
+      - mc
+      - htop
+      - bash-completion
+      - acl
+      - rpmconf
+      - dnf-utils
+    state: present
+
+- name: Install required software 
+  ansible.builtin.package:
+    name: 
+      - skopeo
+      - containers-common
+    state: present
+  when: "'base_metall' in group_names"
